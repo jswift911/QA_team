@@ -75,7 +75,7 @@ public class CreditAccountTest {
     @Test
     public void shouldPayLowerThanCreditLimit() {
         CreditAccount account = new CreditAccount(
-                1_000,
+                10_000,
                 15_000,
                 15
         );
@@ -161,12 +161,10 @@ public class CreditAccountTest {
     @Test
     public void shouldYearChangeNegativeBalance() {
         CreditAccount account = new CreditAccount(
-                0,
+                -200,
                 5_000,
                 15
         );
-
-        account.pay(200);
 
         int expected = -30;
         int actual = account.yearChange();

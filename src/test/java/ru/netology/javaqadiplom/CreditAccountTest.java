@@ -187,10 +187,12 @@ public class CreditAccountTest {
     @Test
     public void shouldYearChangeNegativeBalance() {
         CreditAccount account = new CreditAccount(
-                -200,
+                200,
                 5_000,
                 15
         );
+
+        account.balance = -200;
 
         int expected = -30;
         int actual = account.yearChange();

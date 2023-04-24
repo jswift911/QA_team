@@ -67,7 +67,20 @@ public class CreditAccountTest {
         });
     }
 
-    // 5) Тест на генерацию исключения IllegalArgumentException при нескольких отрицательных параметрах
+    // 5) Тест на генерацию исключения IllegalArgumentException при отрицательном initialBalance
+
+    @Test
+    public void shouldThrowIllegalArgumentExceptionInitialBalance() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            CreditAccount account = new CreditAccount(
+                    -1_000,
+                    15_000,
+                    5
+            );
+        });
+    }
+
+    // 6) Тест на генерацию исключения IllegalArgumentException при нескольких отрицательных параметрах
 
     @Test
     public void shouldThrowIllegalArgumentExceptionAll() {
@@ -80,7 +93,7 @@ public class CreditAccountTest {
         });
     }
 
-    // 6) Тест, на метод pay когда сумма покупки превышает кредитный лимит
+    // 7) Тест, на метод pay когда сумма покупки превышает кредитный лимит
 
     @Test
     public void shouldPayHigherThanCreditLimit() {
@@ -96,7 +109,7 @@ public class CreditAccountTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    // 7) Тест, на метод pay когда сумма покупки не превышает кредитный лимит
+    // 8) Тест, на метод pay когда сумма покупки не превышает кредитный лимит
 
     @Test
     public void shouldPayLowerThanCreditLimit() {
@@ -112,7 +125,7 @@ public class CreditAccountTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    // 8) Тест, на метод pay когда сумма покупки равна кредитному лимиту
+    // 9) Тест, на метод pay когда сумма покупки равна кредитному лимиту
 
     @Test
     public void shouldPayLowerEqualsCreditLimit() {
@@ -128,7 +141,7 @@ public class CreditAccountTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    // 9) Тест, проверку баланса при вызове метода pay когда сумма покупки превышает кредитный лимит
+    // 10) Тест, проверку баланса при вызове метода pay когда сумма покупки превышает кредитный лимит
 
     @Test
     public void shouldPayLowerHigherCreditLimitBalance() {
@@ -146,7 +159,7 @@ public class CreditAccountTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    // 10) Тест, проверку баланса при вызове метода pay когда сумма покупки не превышает кредитный лимит
+    // 11) Тест, проверку баланса при вызове метода pay когда сумма покупки не превышает кредитный лимит
 
     @Test
     public void shouldPayLowerLowerCreditLimitBalance() {
@@ -164,7 +177,7 @@ public class CreditAccountTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    // 11) Тест, проверку баланса при вызове метода pay когда сумма покупки равна кредитному лимиту
+    // 12) Тест, проверку баланса при вызове метода pay когда сумма покупки равна кредитному лимиту
 
     @Test
     public void shouldPayLowerEqualsCreditLimitBalance() {
@@ -182,7 +195,7 @@ public class CreditAccountTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    // 12) Тест, проверку метода yearChange при отрицательном балансе
+    // 13) Тест, проверку метода yearChange при отрицательном балансе
 
     @Test
     public void shouldYearChangeNegativeBalance() {
@@ -198,7 +211,7 @@ public class CreditAccountTest {
         Assertions.assertEquals(expected, actual);
     }
 
-    // 13) Тест, проверку метода yearChange при положительном балансе
+    // 14) Тест, проверку метода yearChange при положительном балансе
 
     @Test
     public void shouldYearChangePositiveBalance() {
